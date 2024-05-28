@@ -8,7 +8,6 @@ def choose_random_word(word_list):
 word_list = ["Durian", "Orange", "Apple", "Mango", "Pineapple"]
 word = choose_random_word(word_list)
 
-print(word)
 
 """ guess =input('Enter a single letter: ')
 if len(guess) == 1 and guess.isalpha():
