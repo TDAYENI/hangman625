@@ -1,3 +1,5 @@
+from  milestone_2 import word
+print(word)
 #guess =input('Enter a single letter: ')
 while True:
     guess =input('Enter a single letter: ')
