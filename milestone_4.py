@@ -35,13 +35,14 @@ def ask_for_input():
     while True:
         guess =input('Enter a single letter: ')
         # check it is one letter and alaphbetical
-        if len(guess) == 1 and guess.isalpha():
-            if guess in list_of_guesses:
+        if len(guess) != 1 or not guess.isalpha():
+                print("Invalid letter. Please, enter a single alphabetical character.")
+        elif guess in list_of_guesses:
                 print("You already tried that letter!")
-            else: 
-                break
+                
         else:
-            print("Invalid letter. Please, enter a single alphabetical character.")
+            print(" printt check_guess .")
+            break
 
             
        
