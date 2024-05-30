@@ -13,11 +13,16 @@ num_letters = len(set(word))
 print(f'unique word count {num_letters}')
 #unique letters in word
 print(f'unique words {set(word)}')
-
-for i in range(len(word)):
+#identfies where the guessed word is and adds is to the word_guessed list
+""" for i, alpanet in range(len(word)):
      if guess == word.lower()[i]:
-          word_guessed[i] = word[i]
+          word_guessed[i] = word[i] """
 
+
+for i, alphabet in enumerate(word.lower()):
+    if guess == alphabet:
+        print(alphabet)
+        word_guessed[i] = word[i]
 
 print(word_guessed)
 print(word)

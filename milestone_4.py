@@ -74,14 +74,19 @@ class Hangman:
             The guess to be checked
 
         '''
-        # TODO 3: Check if the guess is in the word. TIP: You can use the lower() method to convert the guess to lowercase
+        #// TODO 3: Check if the guess is in the word. TIP: You can use the lower() method to convert the guess to lowercase
         # TODO 3: If the guess is in the word, replace the '_' in the word_guessed list with the guess
         # TODO 3: If the guess is in the word, the number of UNIQUE letters in the word that have not been guessed yet has to be reduced by 1
         # TODO 3: If the guess is not in the word, reduce the number of lives by 1
         # Be careful! A guess can contain the same guess more than once. TIP: Take a look at the index() method in the string class
         
         if guess.lower() in self.word.lower():
+            for i, alphabet in enumerate(self.word):
+                 if guess == alphabet:
+                      self.word_guessed[i] = self.word[i]
             print(f'"Good guess! {guess} is in the word."')
+            #todo del print(self.word_guessed)
+            print(self.word_guessed)
         else:
             print(f'"Sorry, {guess} is not in the word. Try again."')
 
@@ -97,7 +102,8 @@ class Hangman:
         #// TODO 1: Assign the guess to a variable called `guess`
         #// TODO 1: The guess has to comply with the following criteria: It has to be a single character. If it is not, print "Please, enter just one character"
         # TODO 2. It has to be a guess that has not been tried yet. Use the list_letters attribute to check this. If it has been tried, print "{guess} was already tried".
-        # TODO 3: If the guess is valid, call the check_guess method
+        # TODO 3: If the guess is valid, call the ch
+        ck_guess method
 
         while True:
             guess =input('Enter a single letter: ')
@@ -108,8 +114,9 @@ class Hangman:
                     print("You already tried that letter!")
                     
             else:
-                print(" next")
                 self.list_of_guesses.append(guess)
+                #Todo del
+                print('self.list_of_guesses', self.list_of_guesses)
                 self.check_guess(guess)
 
             
