@@ -27,7 +27,7 @@ def check_guess (guess):
         print(f'"Good guess! {guess} is in the word."')
     else:
         print(f'"Sorry, {guess} is not in the word. Try again."')
-    ask_for_input(guess)
+    
 
 
 def ask_for_input():
@@ -41,8 +41,9 @@ def ask_for_input():
                 print("You already tried that letter!")
                 
         else:
-            print(" printt check_guess .")
-            break
+            print(" next")
+            list_of_guesses.append(guess)
+            check_guess (guess)
 
             
        
