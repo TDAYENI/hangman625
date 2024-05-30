@@ -51,8 +51,10 @@ class Hangman:
         print(self.num_letters)
         self.num_lives = num_lives
         self.word_list= word_list
+        self.list_of_guesses = []
+        print(f"The mistery word has {self.num_letters} characters\n")
+        print(f"{self.word_guessed}")
         
-        #ist would be ['_', '_', '_', '_', '_']
 
 
 
