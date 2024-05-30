@@ -69,6 +69,8 @@ class Hangman:
                 print("You already tried that letter!\n")
                 #Added print to remove life for extra gueses 
                 print(f'You have {self.num_lives} lives left.\n')
+                # added for after submission for ease of running game
+                print(f'{self.word_guessed}\n')
          #Adds the guess to the list of attempted letters and checks it       
         else:
             self.list_of_guesses.append(guess)
@@ -94,12 +96,16 @@ class Hangman:
                       self.word_guessed[i] = self.word[i]
             
             self.num_letters -= 1
-            print(f'"Good guess! {guess} is in the word."')
+            print(f'Good guess! {guess} is in the word.\n')
+            # added for after submission for ease of running game
+            print(f'{self.word_guessed}\n')
 
         else:
             self.num_lives -= 1
             print(f'Sorry, {guess} is not in the word. Try again.\n')
             print(f'You have {self.num_lives} lives left.\n')
+            # added for after submission for ease of running game
+            print(f'{self.word_guessed}\n')
 
 
 
