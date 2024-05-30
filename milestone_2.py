@@ -1,11 +1,9 @@
 import random
 
-def choose_random_word(word_list):
-
-    return random.choice(word_list)
-
-# Example usage:
 word_list = ["Durian", "Orange", "Apple", "Mango", "Pineapple"]
-word = choose_random_word(word_list)
+word=random.choice(word_list)
+print(word)
+word_guessed = ['_' for i in range(len(word))]
 
-
+print(word_guessed)
+print(len(word_guessed))
