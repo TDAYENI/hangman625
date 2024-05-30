@@ -37,24 +37,13 @@ class Hangman:
         Asks the user for a guess.
     '''
     def __init__(self, word_list , num_lives):
-        #// TODO 2: Initialize the attributes as indicated in the docstring
-        # ///TODO 2: Print two message upon initialization:
-        #// 1. "The mistery word has {num_letters} characters"
-        # //2. {word_guessed}
-
         self.word= random.choice(word_list)
-        # Todo delete print
-        print(self.word)
         # list comp creates list of "_" equal to word len
         self.word_guessed = ['_' for i in range(len(self.word))]
         # finds number of letters in the word
         self.num_letters= len(set(self.word))
-        # Todo delete print
-        print(self.num_letters)
         self.num_lives = num_lives
         self.word_list= word_list
-        # testing pre made list 
-        #todo del and change list
         self.list_of_guesses = []
         print(f"The mistery word has {self.num_letters} characters\n")
         print(f"{self.word_guessed}\n")
@@ -75,15 +64,8 @@ class Hangman:
             The guess to be checked
 
         '''
-        #// TODO 3: Check if the guess is in the word. TIP: You can use the lower() method to convert the guess to lowercase
-        #// TODO 3: If the guess is in the word, replace the '_' in the word_guessed list with the guess
-        #///TODO 3: If the guess is in the word, the number of UNIQUE letters in the word that have not been guessed yet has to be reduced by 1
-        # ///TODO 3: If the guess is not in the word, reduce the number of lives by 1
-        # Be careful! A guess can contain the same guess more than once. TIP: Take a look at the index() method in the string class
-        
+ 
         if guess.lower() in self.word.lower():
-            #todo del print(f'self.world.lower(){self.word.lower()}')
-            print(f'self.world.lower(){self.word.lower()}')
             for i, alphabet in enumerate(self.word.lower()):
                  if guess == alphabet:
                       self.word_guessed[i] = self.word[i]
@@ -105,13 +87,7 @@ class Hangman:
         1. If the guess has already been tried
         2. If the character is a single character
         If it passes both checks, it calls the check_guess method'''
-        #// TODO 1: Ask the user for a guess iteratively until the user enters a valid guess
-        #// TODO 1: Assign the guess to a variable called `guess`
-        #// TODO 1: The guess has to comply with the following criteria: It has to be a single character. If it is not, print "Please, enter just one character"
-        #// TODO 2. It has to be a guess that has not been tried yet. Use the list_letters attribute to check this. If it has been tried, print "{guess} was already tried".
-        #// TODO 3: If the guess is valid, call the check_guess method
 
-    
         guess =input('Enter a single letter: \n').lower()
         # check it is one letter and alaphbetical
         if len(guess) != 1 or not guess.isalpha():
@@ -120,13 +96,11 @@ class Hangman:
         elif guess in self.list_of_guesses:
                 self.num_lives -= 1
                 print("You already tried that letter!\n")
-                #todo delete print statement below
+                #Added print to remove life for extra gueses 
                 print(f'You have {self.num_lives} lives left.\n')
                 
         else:
             self.list_of_guesses.append(guess)
-            #Todo delete print('self.list_of_guesses', self.list_of_g
-            print('self.list_of_guesses', self.list_of_guesses)
             self.check_guess(guess)
 
 def play_game(word_list):
@@ -138,7 +112,7 @@ def play_game(word_list):
         _description_
     """
     game = Hangman(word_list, num_lives=5)
-    #game.ask_for_input()
+    
 
     print(f'The mistery word has {game.num_letters} characters\n')
 
@@ -152,24 +126,17 @@ def play_game(word_list):
               print(f'Congratulations! You won!\n')
               break
         
-        
 
 
-    #// TODO 1: To test this task, you can call the ask_for_input method
-    #// TODO 2: To test this task, upon initialization, two messages should be printed 
-    #// TODO 3: To test this task, you call the ask_for_input method and check if the guess is in the word
-    
-    # TODO 4: Iteratively ask the user for a guess until the user guesses the word or runs out of lives
-    # If the user guesses the word, print "Congratulations! You won!"
-    # If the user runs out of lives, print "You lost! The word was {word}"
 
-    
 
-word_list =  ["Durian", "Orange", "Apple", "Mango", "Pineapple"]
-num_lives =6
 
-play_game(word_list)      
+
+     
             
 
 
 
+if __name__ == '__main__':
+    word_list = ['apple', 'banana', 'orange', 'pear', 'strawberry', 'watermelon']
+    play_game(word_list)
