@@ -37,10 +37,10 @@ class Hangman:
         Asks the user for a guess.
     '''
     def __init__(self, word_list , num_lives):
-        # TODO 2: Initialize the attributes as indicated in the docstring
-        # TODO 2: Print two message upon initialization:
-        # 1. "The mistery word has {num_letters} characters"
-        # 2. {word_guessed}
+        #// TODO 2: Initialize the attributes as indicated in the docstring
+        # ///TODO 2: Print two message upon initialization:
+        #// 1. "The mistery word has {num_letters} characters"
+        # //2. {word_guessed}
 
         self.word= random.choice(word_list)
         print(self.word)
