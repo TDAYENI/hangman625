@@ -55,7 +55,7 @@ class Hangman:
         self.word_list= word_list
         # testing pre made list 
         #todo del and change list
-        self.list_of_guesses = ['a']
+        self.list_of_guesses = []
         print(f"The mistery word has {self.num_letters} characters\n")
         print(f"{self.word_guessed}")
         
@@ -110,22 +110,24 @@ class Hangman:
         #// TODO 2. It has to be a guess that has not been tried yet. Use the list_letters attribute to check this. If it has been tried, print "{guess} was already tried".
         #// TODO 3: If the guess is valid, call the check_guess method
 
-        while True:
-            guess =input('Enter a single letter: \n')
+    
+        guess =input('Enter a single letter: \n')
 
-            # check it is one letter and alaphbetical
-            if len(guess) != 1 or not guess.isalpha():
-                    print("Invalid letter. Please, enter a single alphabetical character.\n")
-            elif guess in self.list_of_guesses:
-                    print("You already tried that letter!\n")
-                    #todo delete print statement below
-                    print(f'You have {self.num_lives} lives left.\n')
-                    
-            else:
-                self.list_of_guesses.append(guess)
-                #Todo delete print('self.list_of_guesses', self.list_of_g
-                print('self.list_of_guesses', self.list_of_guesses)
-                self.check_guess(guess)
+        # check it is one letter and alaphbetical
+        if len(guess) != 1 or not guess.isalpha():
+                print("Invalid letter. Please, enter a single alphabetical character.\n")
+        # check letter has not been tried yet
+        elif guess in self.list_of_guesses:
+                self.num_lives -= 1
+                print("You already tried that letter!\n")
+                #todo delete print statement below
+                print(f'You have {self.num_lives} lives left.\n')
+                
+        else:
+            self.list_of_guesses.append(guess)
+            #Todo delete print('self.list_of_guesses', self.list_of_g
+            print('self.list_of_guesses', self.list_of_guesses)
+            self.check_guess(guess)
 def play_game(word_list):
     """_summary_
 
@@ -135,7 +137,23 @@ def play_game(word_list):
         _description_
     """
     game = Hangman(word_list, num_lives=5)
-    game.ask_for_input()
+    #game.ask_for_input()
+
+    print(f'The mistery word has {game.num_letters} characters\n')
+
+    while True:
+         if game.num_lives == 0:
+              print(f'You lost! The word was {game.word}.\n')
+              break
+         elif game.num_letters > 0:
+              game.ask_for_input()
+         elif game.num_lives is not 0 and game.num_letters <=0:
+              print(f'Congratulations! You won!\n')
+              break
+        
+        
+
+
     # TODO 1: To test this task, you can call the ask_for_input method
     # TODO 2: To test this task, upon initialization, two messages should be printed 
     # TODO 3: To test this task, you call the ask_for_input method and check if the guess is in the word
@@ -144,7 +162,7 @@ def play_game(word_list):
     # If the user guesses the word, print "Congratulations! You won!"
     # If the user runs out of lives, print "You lost! The word was {word}"
 
-    pass
+    
 
 word_list =  ["Durian", "Orange", "Apple", "Mango", "Pineapple"]
 num_lives =6
