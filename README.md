@@ -42,3 +42,4 @@ e.g   (_ _ _) would repesent a three letter word like DOG. if the user guessed t
 ## Methods
 * `check_guess`: Checks if the letter the user inputs is in the word. If it is true it displays the letter in the word if it is isn't a life is removed.
 * `ask_for_input`: Prompts user for 1 letter checking the condtions are met then calls `check_guess` method
+
