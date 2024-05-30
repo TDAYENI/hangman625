@@ -45,7 +45,7 @@ class Hangman:
         self.num_lives = num_lives
         self.word_list= word_list
         self.list_of_guesses = []
-        print(f"The mistery word has {self.num_letters} characters\n")
+        print(f"\nThe mistery word has {self.num_letters} characters\n")
         print(f"{self.word_guessed}\n")
       
         
@@ -72,8 +72,7 @@ class Hangman:
             
             self.num_letters -= 1
             print(f'"Good guess! {guess} is in the word."')
-            #todo del print(self.word_guessed)
-            print(self.word_guessed)
+
         else:
             self.num_lives -= 1
             print(f'Sorry, {guess} is not in the word. Try again.\n')
@@ -113,8 +112,6 @@ def play_game(word_list):
     """
     game = Hangman(word_list, num_lives=5)
     
-
-    print(f'The mistery word has {game.num_letters} characters\n')
 
     while True:
          if game.num_lives == 0:
