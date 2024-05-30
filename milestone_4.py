@@ -136,4 +136,3 @@ num_lives =6
 game =Hangman(word_list,num_lives)
 game.ask_for_input()
 
-

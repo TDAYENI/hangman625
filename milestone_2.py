@@ -21,7 +21,6 @@ print(f'unique words {set(word)}')
 
 for i, alphabet in enumerate(word.lower()):
     if guess == alphabet:
-        print(alphabet)
         word_guessed[i] = word[i]
 
 print(word_guessed)
