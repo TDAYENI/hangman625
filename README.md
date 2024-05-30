@@ -15,8 +15,8 @@ This is an implementation of the Hangman game in python, where the computer thin
 ## Features
 - Random word selection from a predefined list.
 - Tracks the number of lives the player has.
-- Prevents player from repeating the same guess twice
-- Notifies the player of a win or loss
+- Prevents player from repeating the same guess twice.
+- Notifies the player of a win or loss.
 ## Requirements
 
   * Python 3.12 (Random module built into python)
@@ -26,7 +26,8 @@ This is an implementation of the Hangman game in python, where the computer thin
 ## Installation 
 1. Clone this repo (for help on cloning repos see this [tutorial](https://help.github.com/articles/cloning-a-repository/)).
 
-[Copy this link](https://github.com/TDAYENI/hangman625.git) and paste in your repo
+[Copy this link](https://github.com/TDAYENI/hangman625.git) and paste in your terminal
+```git clone < insert link> ```
 
 1. Run the `hangman.py` file. Bash comman below.
 ```bash
