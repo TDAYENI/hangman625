@@ -43,15 +43,19 @@ class Hangman:
         # //2. {word_guessed}
 
         self.word= random.choice(word_list)
+        # Todo delete print
         print(self.word)
         # list comp creates list of "_" equal to word len
         self.word_guessed = ['_' for i in range(len(self.word))]
         # finds number of letters in the word
         self.num_letters= len(set(self.word))
+        # Todo delete print
         print(self.num_letters)
         self.num_lives = num_lives
         self.word_list= word_list
-        self.list_of_guesses = []
+        # testing pre made list 
+        #todo del and change list
+        self.list_of_guesses = ['a']
         print(f"The mistery word has {self.num_letters} characters\n")
         print(f"{self.word_guessed}")
         
@@ -76,7 +80,7 @@ class Hangman:
         # TODO 3: If the guess is not in the word, reduce the number of lives by 1
         # Be careful! A guess can contain the same guess more than once. TIP: Take a look at the index() method in the string class
         
-        if guess.lower() in word.lower():
+        if guess.lower() in self.word.lower():
             print(f'"Good guess! {guess} is in the word."')
         else:
             print(f'"Sorry, {guess} is not in the word. Try again."')
@@ -89,9 +93,9 @@ class Hangman:
         2. If the character is a single character
         If it passes both checks, it calls the check_guess method.
         '''
-        # TODO 1: Ask the user for a guess iteratively until the user enters a valid guess
-        # TODO 1: Assign the guess to a variable called `guess`
-        # TODO 1: The guess has to comply with the following criteria: It has to be a single character. If it is not, print "Please, enter just one character"
+        #// TODO 1: Ask the user for a guess iteratively until the user enters a valid guess
+        #// TODO 1: Assign the guess to a variable called `guess`
+        #// TODO 1: The guess has to comply with the following criteria: It has to be a single character. If it is not, print "Please, enter just one character"
         # TODO 2. It has to be a guess that has not been tried yet. Use the list_letters attribute to check this. If it has been tried, print "{guess} was already tried".
         # TODO 3: If the guess is valid, call the check_guess method
 
@@ -100,20 +104,21 @@ class Hangman:
             # check it is one letter and alaphbetical
             if len(guess) != 1 or not guess.isalpha():
                     print("Invalid letter. Please, enter a single alphabetical character.")
-            elif guess in list_of_guesses:
+            elif guess in self.list_of_guesses:
                     print("You already tried that letter!")
                     
             else:
                 print(" next")
-                list_of_guesses.append(guess)
-                check_guess (guess)
+                self.list_of_guesses.append(guess)
+                self.check_guess(guess)
 
             
        
             
-word_list = ["Durian", "Orange", "Apple", "Mango", "Pineapple"]
+word_list = ["Durian", "Orange", 
+             "Apple", "Mango", "Pineapple"]
 num_lives =6
 game =Hangman(word_list,num_lives)
-
+game.ask_for_input()
 
 
